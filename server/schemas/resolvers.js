@@ -1,5 +1,6 @@
 const { signToken } = require('../utils/auth');
-// book is part of user like reaction is part of thoughts
+
+// note: book is part of user like reaction is part of thoughts
 const { User } = require('../models');
 const { AuthenticationError } = require('apollo-server-errors');
 
