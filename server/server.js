@@ -20,7 +20,7 @@ const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: authMiddleware,
+    // context: authMiddleware,
   });
 
   // Start the Apollo server
@@ -33,9 +33,6 @@ const startServer = async () => {
   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
 };
 
-// initialize the Apollo server
-startServer();
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -43,6 +40,9 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
+
+// initialize the Apollo server
+startServer();
 
 app.use(routes);
 
